@@ -10,9 +10,8 @@ headers = {"User-Agent": "modsaregods/0.1 by Thessalonican17"}
 response = requests.post("https://www.reddit.com/api/v1/access_token", auth=client_auth, data=post_data, headers=headers)
 access_token = response.json()["access_token"]
 headers = {"Authorization": "bearer " + access_token, "User-Agent": "modsaregods/0.1 by Thessalonican17"}
-response = requests.get("https://oauth.reddit.com/subreddits/mine/subscriber?limit=50", headers=headers) # the limit is 50 so that
-                                                                                                         # the application doesn't 
-                                                                                                         # exceed 60 requests per minute
+response = requests.get("https://oauth.reddit.com/subreddits/mine/subscriber?limit=50", headers=headers)
+# the limit is 50 so that the application doesn't exceed 60 requests per minute
 
 raw_subreddits = response.json()["data"]["children"]
 subreddits = []
