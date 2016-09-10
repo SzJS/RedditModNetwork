@@ -32,7 +32,7 @@ for default in defaults:
 with open("mods.txt", mode="w", encoding="utf-8") as file:
     for mod in mods:
         file.write(mod + "\n")
-        time.sleep(1)
+        time.sleep(1) # this may not be necessary
         response = requests.get("https://reddit.com/user/{}/".format(mod), headers=headers)
         pq = pyquery.PyQuery(response.content)
         for subreddit in [x.text for x in pq("#side-mod-list li a")]:
