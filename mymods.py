@@ -2,14 +2,16 @@ import getpass
 import requests
 import requests.auth
 import time
+from secret import secret
+from shared import version_string
 
 pswd = getpass.getpass('Password:')
-client_auth = requests.auth.HTTPBasicAuth('BNt88FhRgC1OsQ', 'pgnkTeR6ZvV5dT9MiPCKPxvQoRo')
+client_auth = requests.auth.HTTPBasicAuth('BNt88FhRgC1OsQ', secret)
 post_data = {"grant_type": "password", "username": "Thessalonican17", "password": pswd}
-headers = {"User-Agent": "modsaregods/0.1 by Thessalonican17"}
+headers = {"User-Agent": "modsaregods/{} by Thessalonican17".format(version_string)}
 response = requests.post("https://www.reddit.com/api/v1/access_token", auth=client_auth, data=post_data, headers=headers)
 access_token = response.json()["access_token"]
-headers = {"Authorization": "bearer " + access_token, "User-Agent": "modsaregods/0.1 by Thessalonican17"}
+headers = {"Authorization": "bearer " + access_token, "User-Agent": "modsaregods/{} by Thessalonican17".format(version_string)}
 response = requests.get("https://oauth.reddit.com/subreddits/mine/subscriber?limit=50", headers=headers)
 # the limit is 50 so that the application doesn't exceed 60 requests per minute
 

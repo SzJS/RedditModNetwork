@@ -4,8 +4,7 @@ import requests.auth
 import pyquery
 import time
 from secret import secret
-
-version_string = "0.1.2"
+from shared import version_string
 
 pswd = getpass.getpass('Password:')
 client_auth = requests.auth.HTTPBasicAuth('BNt88FhRgC1OsQ', secret)
