@@ -3,11 +3,12 @@ import requests
 import requests.auth
 import pyquery
 import time
+from secret import secret
 
 version_string = "0.1.2"
 
 pswd = getpass.getpass('Password:')
-client_auth = requests.auth.HTTPBasicAuth('BNt88FhRgC1OsQ', 'pgnkTeR6ZvV5dT9MiPCKPxvQoRo')
+client_auth = requests.auth.HTTPBasicAuth('BNt88FhRgC1OsQ', secret)
 post_data = {"grant_type": "password", "username": "Thessalonican17", "password": pswd}
 headers = {"User-Agent": "modsaregods/{} by Thessalonican17".format(version_string)}
 response = requests.post("https://www.reddit.com/api/v1/access_token", auth=client_auth, data=post_data, headers=headers)
