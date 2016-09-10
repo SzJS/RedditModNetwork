@@ -29,9 +29,12 @@ for default in defaults:
         mod = raw_mod["name"]
         mods.add(mod)
 
-for mod in mods:
-    time.sleep(1)
-    response = requests.get("https://reddit.com/user/{}/".format(mod), headers=headers)
-    pq = pyquery.PyQuery(response.content)
-    number = sum(1 for x in pq("#side-mod-list li a"))
-    print("{} moderates {} subreddits".format(mod, number))
+with open("mods.txt", mode="w", encoding="utf-8") as file:
+    for mod in mods:
+        file.write(mod + "\n")
+        time.sleep(1)
+        response = requests.get("https://reddit.com/user/{}/".format(mod), headers=headers)
+        pq = pyquery.PyQuery(response.content)
+        for subreddit in [x.text for x in pq("#side-mod-list li a")]:
+            file.write(subreddit + " ")
+        file.write("\n")
