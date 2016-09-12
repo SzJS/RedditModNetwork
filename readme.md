@@ -11,5 +11,5 @@ I used `defaultmods.py` to find all the default subreddits and their moderators,
 The science subreddits (/r/science and /r/askscience) were ignored on purpose as they had too many moderators and my computer simple couldn't handle the additional million edges they added to the graph (the final graph has only about 22,000 edges, in comparison).
 ## Where is AutoModerator?
 Just like the science subreddit, AutoModerator had too many connections and thus would have cluttered the graph.
-# What does `find_influential.py` do?
+## What does `find_influential.py` do?
 I have figured that one simplistic measure of influence is the number of connections a moderator has, so `find_influential.py` ranks the default mods based on their number of connections and writes the result to a file.
