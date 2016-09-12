@@ -1,8 +1,8 @@
 # RedditModNetwork
 ## What is this?
 The point of this project was to create a network representing the connections of the mods of the default subreddits of reddit. In my definition, two moderators are connected if they moderate a shared subreddit (this subreddit doesn't need to be a default, however).
-## Where is the graph?
-The graph is in the `result_Sept_10_2016` folder (in both .svg and .gexf file formats). The file was created on the 10th of September 2016, so it is representative of that state of reddit.
+## Where can I find the result?
+The graph visualizing the network is in the `result_Sept_10_2016` folder (in both .svg and .gexf file formats). The file was created on the 10th of September 2016, so it is representative of that state of reddit.
 
 There also exists an interactive version of the graph on the [github pages of this project](https://szjs.github.io/RedditModNetwork/).
 ## How was this graph created?
